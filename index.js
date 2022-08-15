@@ -112,9 +112,9 @@ client.autoresume = new Enmap({ name: "autoresume", dataDir: "./databases/infos"
     .filter(Boolean)
     .forEach(h => {
         require(`./handlers/${h}`)(client);
-    })
+    })|| config.token
 //Start the Bot
-client.login(config.token)
+client.login(process.env.token || config.token);
 
 /**
  * @INFO
